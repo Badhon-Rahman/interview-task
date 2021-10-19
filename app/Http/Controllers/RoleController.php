@@ -17,7 +17,7 @@ class RoleController extends Controller
      * Handle an incoming role create request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return  -new created role @$role
      *
      * @throws \Illuminate\Validation\ValidationException
      */
