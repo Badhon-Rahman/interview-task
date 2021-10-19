@@ -13,12 +13,31 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::create('roles', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('email');
             $table->string('password');
+            $table->timestamps();
+        });
+
+        Schema::create('profiles', function (Blueprint $table) {
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_unicode_ci';
+            $table->index('user_id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('mobile')->nullable();
+            $table->index('role_id');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -31,6 +50,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('roles');
         Schema::dropIfExists('users');
+        Schema::dropIfExists('profiles');
     }
 }
