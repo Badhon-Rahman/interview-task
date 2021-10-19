@@ -48,6 +48,14 @@ class RegisteredUserController extends Controller
        
         event(new Registered($user));
 
+        $userProfile = Profile::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'mobile' => $request->mobile,
+            'user_id' => $user['id'],
+        ]);
+
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
