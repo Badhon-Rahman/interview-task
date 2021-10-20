@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('guest')->post('/api/login');
+
+Route::middleware('guest')->post('/api/register');
+
 Route::middleware('auth:sanctum')->get('/api/user/list');
 
 Route::middleware('auth:sanctum')->get('/api/user/profile/{id}');
