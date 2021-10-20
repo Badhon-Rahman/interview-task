@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "93382933-d506-4e48-b195-6c0e4efe1c8f",
+		"name": "User Profile",
+		"description": "GET - http://127.0.0.1:8000/api/user/profile/{id}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [],
+	"auth": {
+		"type": "basic"
+	},
+	"variable": [
+		{
+			"key": "id",
+			"value": "user id"
+		}
+	]
+}

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Dashboard</h1>
+    <h1>Delete Role</h1>
     <nav class="navbar navbar-light bg-light">
       <button style="float: left;"><router-link to="/create/role">Create Role</router-link></button>
       <button style="float: left;"><router-link to="/assign/role">Assign Role</router-link></button>

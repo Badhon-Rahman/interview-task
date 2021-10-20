@@ -31,6 +31,6 @@ class RoleController extends Controller
             'name' => $request->name
         ]);
 
-       return $role;
+       return true;
     }
 }

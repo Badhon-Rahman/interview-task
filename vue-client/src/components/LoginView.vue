@@ -1,7 +1,7 @@
 <template>
   <div class="loginForm">
       <h1 class="loginForm">login</h1>
-      <form @submit.prevent="CreateContact">
+      <form @submit.prevent="login">
         <div class="form-group">
           <input type="text" v-model="formValues.email" class="form-control" id="email" placeholder="Email address">
           <br>
@@ -35,7 +35,7 @@ export default {
     }
   },
   methods: {
-    CreateContact () {
+    login () {
       UrlService.getLogin(this.formValues).then((response) => {
         if(response.data == 1){
           window.location.href = RouteService.getDashboard();
@@ -49,7 +49,6 @@ export default {
       })
     }
   }
-
 }
 </script>
 

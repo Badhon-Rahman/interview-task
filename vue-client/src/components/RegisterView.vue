@@ -1,25 +1,29 @@
 <template>
   <div class="registerForm">
       <h1>Register</h1>
-      <form>
-        <div class="form-group">
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Email address">
+      <form @submit.prevent="register">
+         <div class="form-group">
+          <input type="text" v-model="formValues.name" class="form-control" id="name" placeholder="Full Name">
           <br>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Password">
+          <input type="text" v-model="formValues.email" class="form-control" id="email" placeholder="Email address">
           <br>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Confirm Password">
+          <input type="password" v-model="formValues.password" class="form-control" id="password" placeholder="Password">
           <br>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Mobile number">
+          <input type="password" v-model="formValues.password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password">
+          <br>
+        </div>
+        <div class="form-group">
+          <input type="text" v-model="formValues.mobile" class="form-control" id="mobile" placeholder="Mobile number">
           <br>
         </div>
         <div class="" style="float:right; padding: 10px;">
-            <button>Submit</button>
+            <button type="submit">Submit</button>
         </div>
     </form>
   </div>
@@ -27,8 +31,38 @@
 </template>
 
 <script>
-export default {
+import UrlService from '../service/UrlService.js'
+import RouteService from '../service/RouteService.js';
 
+export default {
+   name: 'RegisterView',
+
+  data () {
+    return {
+      formValues: {
+        name : '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        mobile: ''
+      }
+    }
+  },
+  methods: {
+    register () {
+      UrlService.getRegister(this.formValues).then((response) => {
+        if(response.data == 1){
+          window.location.href = RouteService.getDashboard();
+        }
+        else{
+          loginStatus = 0;
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
+  }
 }
 </script>
 

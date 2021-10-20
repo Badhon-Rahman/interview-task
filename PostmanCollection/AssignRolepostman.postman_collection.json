@@ -1,0 +1,22 @@
+{
+	"info": {
+		"_postman_id": "75fa8753-13d4-45dc-83f3-47e8aca08959",
+		"name": "Assign Role",
+		"description": "POST - http://127.0.0.1:8000/api/assign/role",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [],
+	"auth": {
+		"type": "basic"
+	},
+	"variable": [
+		{
+			"key": "id",
+			"value": "user id"
+		},
+        {
+			"key": "roleId",
+			"value": "role id"
+		}
+	]
+}

@@ -1,5 +1,7 @@
 <template>
-  <h1>Register</h1>
+  <div>
+      <h1>Lougout</h1>
+  </div>
 </template>
 
 <script>
