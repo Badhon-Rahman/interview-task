@@ -1,0 +1,12 @@
+1. clone or download project from - https://github.com/Badhon-Rahman/interview-task
+
+laravel-api -
+ 1. install composer
+ 2. update composer
+ 3. add .env configaration and add database.php configaration
+ 4. migrate data tables- php artisan migrate
+
+run - php artisan serve
+
+vue-client- 
+ Enter vue-client directory run- npm run serve
