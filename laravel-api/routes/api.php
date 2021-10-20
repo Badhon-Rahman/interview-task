@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')->get('/api/user/list');
+
+Route::middleware('auth:sanctum')->get('/api/user/profile/{id}');
+
+Route::middleware('auth:sanctum')->get('/api/role');
+
+Route::middleware('auth:sanctum')->post('/api/role');
+
+Route::middleware('auth:sanctum')->post('/api/assign/role');
+
+Route::middleware('auth:sanctum')->post('/api/remove/assigned/role');
+
+

@@ -26,18 +26,24 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
                 ->middleware('guest');
 
-Route::get('/role', [RoleController::class, 'create'])
-        ->middleware('guest')
+Route::get('/api/role', [RoleController::class, 'create'])
+        ->middleware('auth')
         ->name('role');
 
 Route::post('/api/role', [RoleController::class, 'store'])
-                ->middleware('guest');
+                ->middleware('auth');
 
 Route::post('/api/assign/role', [UserController::class, 'update'])
-    ->middleware('guest');
+    ->middleware('auth');
 
 Route::post('/api/remove/assigned/role', [UserController::class, 'destroy'])
-    ->middleware('guest');
+    ->middleware('auth');
+
+Route::get('/api/user/list', [UserController::class, 'userList'])
+    ->middleware('auth');
+
+Route::get('/api/user/profile/{id}', [UserController::class, 'getUser'])
+    ->middleware('auth');
 
 // Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
 //                 ->middleware('guest')
